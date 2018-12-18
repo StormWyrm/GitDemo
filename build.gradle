@@ -4,3 +4,21 @@
  * This is a general purpose Gradle build.
  * Learn how to create Gradle builds at https://guides.gradle.org/creating-new-gradle-builds/
  */
+buildscript {
+    repositories {
+        jcenter()
+        google()
+        mavenCentral()
+    }
+
+    dependencies{
+        classpath 'com.android.tools.build:gradle:3.2.1'
+    }
+}
+allprojects {
+    repositories {
+        jcenter()
+        google()
+        mavenCentral()
+    }
+}

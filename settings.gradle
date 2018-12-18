@@ -8,3 +8,5 @@
  */
 
 rootProject.name = 'GitDemo'
+include ':app'
+
