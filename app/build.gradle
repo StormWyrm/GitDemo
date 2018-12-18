@@ -4,7 +4,22 @@ android {
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
 
-    flavorDimensions 'channel','pay'
+    signingConfigs {
+        vip {
+            storeFile file('../vip_key.jks')
+            storePassword '123456'
+            keyAlias 'key0'
+            keyPassword '123456'
+        }
+        free {
+            storeFile file('../free_key.jks')
+            storePassword '123456'
+            keyAlias 'key0'
+            keyPassword '123456'
+        }
+    }
+
+    flavorDimensions 'channel', 'pay'
     productFlavors {
         normal {
             dimension 'channel'
@@ -18,12 +33,16 @@ android {
             applicationIdSuffix 'baidu'
         }
 
-        vip{
+        vip {
             dimension 'pay'
+            buildConfigField("boolean", "isFreeVersion", 'false')
+            signingConfig signingConfigs.vip
         }
 
-        free{
+        free {
             dimension 'pay'
+            buildConfigField("boolean", "isFreeVersion", 'true')
+            signingConfig signingConfigs.free
         }
     }
 
@@ -34,7 +53,6 @@ android {
         versionCode 1
         versionName '1.0.0'
     }
-
 
     buildTypes {
         release {
