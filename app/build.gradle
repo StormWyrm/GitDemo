@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
 
-    flavorDimensions 'channel'
+    flavorDimensions 'channel','pay'
     productFlavors {
         normal {
             dimension 'channel'
@@ -16,6 +16,14 @@ android {
         baidu {
             dimension 'channel'
             applicationIdSuffix 'baidu'
+        }
+
+        vip{
+            dimension 'pay'
+        }
+
+        free{
+            dimension 'pay'
         }
     }
 
