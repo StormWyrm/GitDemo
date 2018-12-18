@@ -5,17 +5,27 @@ android {
     buildToolsVersion '28.0.3'
 
     signingConfigs {
+        def appStorePassword = System.getenv("store password")
+        def appKeyAlias = System.getenv("key alias")
+        def appKeyPassword = System.getenv("key password")
+
+        if(!appStorePassword || !appKeyAlias || !appKeyPassword){
+            appStorePassword = "123456"
+            appKeyAlias = 'key0'
+            appKeyPassword = '123456'
+        }
+
         vip {
             storeFile file('../vip_key.jks')
-            storePassword '123456'
-            keyAlias 'key0'
-            keyPassword '123456'
+            storePassword appStorePassword
+            keyAlias appKeyAlias
+            keyPassword appKeyPassword
         }
         free {
             storeFile file('../free_key.jks')
-            storePassword '123456'
-            keyAlias 'key0'
-            keyPassword '123456'
+            storePassword appStorePassword
+            keyAlias appKeyAlias
+            keyPassword appKeyPassword
         }
     }
 
