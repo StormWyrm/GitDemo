@@ -62,6 +62,7 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName '1.0.0'
+        multiDexEnabled true //配置多dex
     }
 
     buildTypes {
@@ -81,5 +82,5 @@ android {
     }
 }
 dependencies{
-
+    implementation 'com.android.support:multidex:1.0.3'
 }
